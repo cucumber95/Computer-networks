@@ -7,8 +7,10 @@ import sys
 def ping(host, size):
     if platform.system() == 'Windows':
         command = ["ping", "-n", "1", "-l", f"{size}", host]
-    else:
+    elif platform.system() == 'Linux':
         command = ["ping", "-c", "1", "-M", "do", "-s", f"{size}", host]
+    else:
+        command = ["ping", "-c", "1", "-D", "-s", f"{size}", host]
     result = subprocess.run(
         command,
         stdout=subprocess.PIPE,
