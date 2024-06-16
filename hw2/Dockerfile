@@ -1,0 +1,7 @@
+FROM python:3.8-slim
+
+WORKDIR /hw2
+
+COPY main.py .
+
+ENTRYPOINT ["python", "-m", "main"]
