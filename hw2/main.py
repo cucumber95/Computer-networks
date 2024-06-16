@@ -39,13 +39,13 @@ def get_mtu(host):
     r = 2**16 + 1
 
     while r - l > 1:
-        m = (l + r) / 2
+        m = int((l + r) / 2)
         if ping(host, m):
             l = m
         else:
             r = m
 
-    return r
+    return l
 
 
 def main():
